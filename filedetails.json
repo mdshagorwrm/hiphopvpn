@@ -1,11 +1,127 @@
 {
   "ovpn_file":[
-    {"id":0,"file":"client
-    dev tun
-    proto udp
-    ...
-    d4ec4105a39c814bd980c9c0e0b8efb4
-    -----END OpenVPN Static key V1-----
-    </tls-auth>"},
-    {"id":1,"file":""}]
+    {"id":0,"file":"
+     setenv FORWARD_COMPATIBLE 1
+client
+server-poll-timeout 4
+nobind
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 443 tcp
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 1194 udp
+remote 34.126.166.214 1194 udp
+dev tun
+dev-type tun
+ns-cert-type server
+setenv opt tls-version-min 1.0 or-highest
+reneg-sec 604800
+sndbuf 0
+rcvbuf 0
+# NOTE: LZO commands are pushed by the Access Server at connect time.
+# NOTE: The below line doesn't disable LZO.
+comp-lzo no
+verb 3
+setenv PUSH_PEER_INFO
+
+<ca>
+-----BEGIN CERTIFICATE-----
+MIICuDCCAaCgAwIBAgIEYgZZSTANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDDApP
+cGVuVlBOIENBMB4XDTIyMDIwNDEyNDA0MVoXDTMyMDIwOTEyNDA0MVowFTETMBEG
+A1UEAwwKT3BlblZQTiBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEB
+AMYVeltmyjmBlNTJfgOps9jasccQx8Y9Q0oj1ZFoGKuOYOAxjbukpI8ziw0RN8w5
+ZkPHceozKn9LR8rJWzrZ/OIL1bG21KlFtSaAGWkjg3wjX+6m6OElN0xL6OagYxwd
+NQJE5aldEcHt4vhLfJWh0bR6/3xrHJ8j+1CqoJ4pEsvWGYx996aYFdSk9Jv8Sh3V
+5dACgGkHZPVsF+K2XADbO533RXI78u5iDlSmnPUaHNdSJL5ct3fehL6WrJykTl5r
+4WbvMtYmpiqpWyzz1+JPAtL5wjWHzdHRmHIif7SHiNemRSaCPW35dt8/3NSJkZig
+T5Do9i7V8Lbdx57vOZit22kCAwEAAaMQMA4wDAYDVR0TBAUwAwEB/zANBgkqhkiG
+9w0BAQsFAAOCAQEAf+7G9U5FCGHaoxzPE/SVGAshG9UkX+pE7K2w4c92ejCMpqyr
+9xjgrjw8EeHEinWvmcbPo5xEf0juTwN5oV5vL2K8TqTlOek7fl05zr2R06wgpWyL
+VeyzoMf3WTe5LhHymPpQ8NdEipJPdbpknZkRnnRs4UOsFh+WxN7HxaKbQr+BeiWG
+HA9hAKfIKvkIYw57iK9nI/B6LZjgnb4R++hMD5eRfZUOf/A48svnUfTKV38BhwRe
+ZPJZP6+6Fg7c8F1raDvXrWmY8ao5Ok6xq681LfTkYdAHVWWFGPlaktfFYvq3fZ7m
++a1erktCNivZk8XtS//jq0kPxcVaWx2+3JBxcw==
+-----END CERTIFICATE-----
+</ca>
+
+<cert>
+-----BEGIN CERTIFICATE-----
+MIICzjCCAbagAwIBAgIBAzANBgkqhkiG9w0BAQsFADAVMRMwEQYDVQQDDApPcGVu
+VlBOIENBMB4XDTIyMDIwNDEzMTAzNloXDTMyMDIwOTEzMTAzNlowHjEcMBoGA1UE
+AwwTaGlwaG9wdnBuX0FVVE9MT0dJTjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCC
+AQoCggEBANZPzZ/3IRLWj8a4IGq7c3AKb3pzVkBzxemBWYEqOBgKpL6yLqeOR7Xy
+Rx0HZHRznDWmo83Zo6u11SGOuZVoQAjXYVxJg+lN8GSU+gbw++XTJxy1SsOhK1Q4
+SQH5RjcihvmJUTN2bBIvtGFky3G3ZFwldkDogAlETyGLOyGlmcQOF1j8Td+NJEtS
+hdOEQ0FFKph5UGt9ch3XXSXec2xDLElCtUbkfXDEQQRBst4hU2K4GYzO/Wx4pJ/3
+unb/2zGzR1hBdoaM8nt4Z0UV8dojRN4B2oU9Y2WGc2vWgTkXljU2MkGK2zP/Rzfq
+hpzQhaWKxmCxweYBqyj0mo/wvOpmZGMCAwEAAaMgMB4wCQYDVR0TBAIwADARBglg
+hkgBhvhCAQEEBAMCB4AwDQYJKoZIhvcNAQELBQADggEBAGFh+jMdW1g+nYEwUVN3
+KarhYDizx+yp4p7JL0tPrsF4+gEPNIMEZR9Jlv9WcxTx4vEvkxJa398SjacItele
+VNCKl8uHX/WfbflRXxnn9/7rcdMGrrmfy2DnhwbmfTqqAqfZCMQTVsuGH/A864i1
+H5sfVR6hsO1c49WFtul/28KpSYIloyoBx6bRD9twp3QnhMJ7fz98GW0I5itPgFMz
+6/RaNUpfox5XbbxQxTsbAQ099N5vGtMji3dVeu/vqTOS43mNs6DNnPf3xFrRKXpR
+NCegIF6a9f02XFf8lDilZjYA4KrqSU7NE2pBPS2/FG9+7qZUfz8Zez+aJ0ok/BtL
+fJ4=
+-----END CERTIFICATE-----
+</cert>
+
+<key>
+-----BEGIN PRIVATE KEY-----
+MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDWT82f9yES1o/G
+uCBqu3NwCm96c1ZAc8XpgVmBKjgYCqS+si6njke18kcdB2R0c5w1pqPN2aOrtdUh
+jrmVaEAI12FcSYPpTfBklPoG8Pvl0ycctUrDoStUOEkB+UY3Iob5iVEzdmwSL7Rh
+ZMtxt2RcJXZA6IAJRE8hizshpZnEDhdY/E3fjSRLUoXThENBRSqYeVBrfXId110l
+3nNsQyxJQrVG5H1wxEEEQbLeIVNiuBmMzv1seKSf97p2/9sxs0dYQXaGjPJ7eGdF
+FfHaI0TeAdqFPWNlhnNr1oE5F5Y1NjJBitsz/0c36oac0IWlisZgscHmAaso9JqP
+8LzqZmRjAgMBAAECggEATql2CQwVaKu2lDMLOwHYyjwaVPC2rOuRrjabGqzbb/+g
+HpqaQ0gXDDKEZaRL++5fXNXwc+M5jxIry6hud+eO8W/UvaICOAUygkioSRn065OI
+XKIycgHbPIt4SLAtVJlov3jmhCQoYLh/1evAPNoajTP25rYwILag8OgA6UW2Xd49
+9gcc5C9xiRP/CVPt+DBNMPD1u+z1F8QIGNjeei2FPgA1OKkakHuOkK74vm1nTD9c
+1zVG0jqofRl42GywJApBaWD3l5m0ouuSGZ6VMm5xeuVu/+IYzAbTHmw2U+appdzE
+ZGdPPkLp4nRubBvwhfGPl83VUs+dpwvL8rXCRrYoCQKBgQD4em16hJi4fcAodwjg
+alIKeUqP77IdjGysT+Ab6am0CmGZIW5guWM+LVyVe22xC27H7cLZ5rfjnJ/GlLio
+fa7gum3G3OWzFtEjmoJOkKvO3B1OforG9vaqnmFiN8+qbj6LnMJS9TGSFFnlAKz6
+CN1Wcz+3DF4vWRq99HGer/LWVQKBgQDczJqFt3mk5K5dAbFspou13eFHkTW12h+c
+Z25mzXfLBr9GmYs8FWGCwc6R5JmKzdAlGTrsAciZrokhl/UY9mDTAFldOLmU7dyw
+NyzbTsqnEI8Jkdrn+C5U3OrOW0seVUWB1InU5/4pCkEXmxIeAilOwGySJjMmQyJQ
+fxW02qfX1wKBgD96z5NYYsfnYHs2Be+HWhRQ7mqdWwzPfkf7VA7tgCx95nc/ojpV
+wnP1FM0frmNnv1KWfIw8tEgTEIKkJhTtnwrMthTzBD/fmWiWJao6rZn4hAg0rfGs
+0FHAirKT/ZrV9WanksGs4JAoYNrvdEGgmCNo6CM0pq9D/WAAHjLjUo/NAoGBALVW
+VJH9XapPJeS8vzq8jYGP+LUOTU5NFikdyU4k8X2MzQruj6uI48y/3ydy16dn4MqX
+Lg0madnNvlIYuvMFZf/lCX/GVqQ5tkYDCpQS4dzTfKYfY+mfqm2IAk/4Knl/DtbR
+92EkJ1kNUuhQM1Dx9Xr4DjL5rIiAGm6B8RHXgoGBAoGBANqI4HHmGsQTz9iHnQc2
+5re5n61MfwthtJLoWHAsJIJCs2KeV/UNVvo5h3qhH5BZsbu5Ftj/gCNks45tvqoy
+XSd67jg+nN0YsA9LFB4ppSa3OlwPtUfKvdMpIZ4KWOdCw9gI4CQJliltHsBXJcot
+Gdpp4yVQO2FZswWGhzHfyacQ
+-----END PRIVATE KEY-----
+</key>
+
+key-direction 1
+<tls-auth>
+#
+# 2048 bit OpenVPN static key (Server Agent)
+#
+-----BEGIN OpenVPN Static key V1-----
+db2490f90a40fd80f863dae73c0e39ac
+74fc547cfd3ce361d8defb556ef8ee83
+7472b018054b7a7a5295dd1e787dbdc1
+513804b6886d36a31e8bc1086f8ef25d
+b284f8f583f94c94b646952925c726ea
+689e479c5a2aa975451602f24f76be6d
+e0da43b9fb9daeddabd1b86281689490
+fc0902b93edcf28c474ddde52ad717cd
+20ad9c2aa2a52a8780260b45b22798de
+200fd71d752a21b4336f4df5ca2efdf4
+17cdf82a6731235e780de2c7e4e785e4
+d967f2a8b5748bf179f70ec4aadc379b
+df21b90047f97a3ef67f3ae39131f170
+4d669534ae8b38e206095489aeb9cebd
+5cd85da7a908c9608b312b0e27fcb1d1
+04fe2005d6fb0b9234d511547f9ca99c
+-----END OpenVPN Static key V1-----
+</tls-auth>
+     "},
+   ]
 }
